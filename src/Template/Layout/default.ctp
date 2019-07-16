@@ -26,14 +26,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['bootstrap/bootstrap.min']) ?>
     <?= $this->Html->script(['jquery/jquery','bootstrap/bootstrap.min']) ?>
+    <?= $this->Html->css(['bootstrap/bootstrap.min']) ?>
+    
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
+    Hello deja el show
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
