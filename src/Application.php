@@ -34,9 +34,12 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
+        Configure::write('DebugKit.safeTld', ['localhost', 'local', 'com']);
+        $this->addPlugin('DebugKit');
+
         $this->addPlugin('BootstrapUI');
 
-        
+          
 
         // Call parent to load bootstrap from files.
         parent::bootstrap();
