@@ -83,7 +83,7 @@ $cakeDescription = 'Mercado de Cartón';
       
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <div class="site-logo"><a href="index.html" class="text-uppercase">Mercado de Cartón</a></div>
+          <div class="site-logo"><a href="./" class="text-uppercase">Mercado de Cartón</a></div>
           <div>
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-xl-block">
@@ -94,8 +94,7 @@ $cakeDescription = 'Mercado de Cartón';
           </div>
           <div class="ml-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-xl-block">    
-              <li class="cta"><a href="#contact-section" class="nav-link"><span class="border bg-danger rounded text-white border-danger">Contact</span></a></li>            
+              <ul class="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-xl-block">                  
               </ul>
             </nav>
             <a href="#" class="d-inline-block d-xl-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
