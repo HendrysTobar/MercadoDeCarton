@@ -4,25 +4,36 @@
  * @var \App\Model\Entity\Card $card
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Cards'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="cards form large-9 medium-8 columns content">
-    <?= $this->Form->create($card) ?>
-    <fieldset>
-        <legend><?= __('Add Card') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('description');
-            echo $this->Form->control('url_image');
-            echo $this->Form->control('user_id', ['options' => $users]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<?php
+$this->extend('../Layout/TwitterBootstrap/signin');
+
+$this->start('tb_actions');
+?>
+    <li><?= $this->Html->link(__('List Cards'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+<?php
+$this->end();
+
+$this->start('tb_sidebar');
+?>
+<ul class="nav nav-sidebar">
+    <li><?= $this->Html->link(__('List Cards'), ['action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+    <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+</ul>
+<?php
+$this->end();
+?>
+<?= $this->Form->create($card); ?>
+<fieldset>
+    <legend><?= __('Add {0}', ['Card']) ?></legend>
+    <?php
+    echo $this->Form->control('name');
+    echo $this->Form->control('description');
+    echo $this->Form->control('url_image');
+    echo $this->Form->control('user_id', ['options' => $users]);
+    ?>
+</fieldset>
+<?= $this->Form->button(__("Add")); ?>
+<?= $this->Form->end() ?>
