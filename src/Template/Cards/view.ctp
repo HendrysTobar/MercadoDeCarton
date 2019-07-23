@@ -36,30 +36,29 @@ $this->end();
             <td><?= __('Name') ?></td>
             <td><?= h($card->name) ?></td>
         </tr>
+        
+        <tr>
+            <td></td>
+            <td>                
+                <img class="rounded mx-auto d-block" src='<?= h($card->url_image) ?>'/>
+            </td>
+        </tr>
         <tr>
             <td><?= __('Description') ?></td>
             <td><?= h($card->description) ?></td>
         </tr>
         <tr>
-            <td><?= __('Url Image') ?></td>
-            <td><?= h($card->url_image) ?></td>
-        </tr>
-        <tr>
             <td><?= __('User') ?></td>
             <td><?= $card->has('user') ? $this->Html->link($card->user->id, ['controller' => 'Users', 'action' => 'view', $card->user->id]) : '' ?></td>
         </tr>
-        <tr>
-            <td><?= __('Id') ?></td>
-            <td><?= $this->Number->format($card->id) ?></td>
-        </tr>
-        <tr>
-            <td><?= __('Created') ?></td>
-            <td><?= h($card->created) ?></td>
-        </tr>
-        <tr>
-            <td><?= __('Modified') ?></td>
-            <td><?= h($card->modified) ?></td>
-        </tr>
+        <?php if(isset($valor)):?>
+            <tr>
+                <td><?= __('Valor en Pesos') ?></td>
+                <td>$<?= $valor ?></td>
+            </tr>
+        <?php endif;?>
+       
+               
     </table>
 </div>
 

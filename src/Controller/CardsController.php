@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Controller\Component\CalculadorPrecio;
 
 /**
  * Cards Controller
@@ -39,6 +40,12 @@ class CardsController extends AppController
         $card = $this->Cards->get($id, [
             'contain' => ['Users']
         ]);
+        $p = $this->request->getQuery("precio");        
+        if($p != null)
+        {            
+            $cp = new CalculadorPrecio();            
+            $this->set("valor", $cp->CalcularPrecioEnPesos($p), "BUG! El valor en pesos no se ha calculado correctamente");           
+        }
 
         $this->set('card', $card);
     }
@@ -56,7 +63,7 @@ class CardsController extends AppController
             if ($this->Cards->save($card)) {
                 $this->Flash->success(__('The card has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $card->id]);
             }
             $this->Flash->error(__('The card could not be saved. Please, try again.'));
         }

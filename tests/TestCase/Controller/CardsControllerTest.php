@@ -39,7 +39,17 @@ class CardsControllerTest extends TestCase
      */
     public function testView()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/cards/view/1?precio=30');
+        // Assert view variables
+        $valor =  $this->viewVariable('valor');
+
+        $this->assertEquals(75000, $valor);
+
+
+        $this->get('/cards/view/1?precio=10');
+        // Assert view variables
+        $valor =  $this->viewVariable('valor');
+        $this->assertEquals(25000, $valor);
     }
 
     /**
