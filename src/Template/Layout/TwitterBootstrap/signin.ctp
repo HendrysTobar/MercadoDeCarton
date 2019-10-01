@@ -13,17 +13,25 @@
     <body <?= $this->fetch('tb_body_attrs') ?>>
 
         
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mercado de Cartón</a>
+            </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#">Mercado de Cartón</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <?=$this->fetch('tb_sidebar')?>
-            </div>  
-        </nav>
-
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <?= $this->fetch("tb_actions")?>
+                </ul>            
+            </div>
+        </div>
+    </nav>
        
 
         <div class="container">
