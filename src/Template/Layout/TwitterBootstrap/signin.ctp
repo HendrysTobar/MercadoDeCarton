@@ -12,6 +12,9 @@
 
     <body <?= $this->fetch('tb_body_attrs') ?>>
 
+
+    
+
         
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -27,12 +30,27 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
-                    <?= $this->fetch("tb_actions")?>
-                </ul>            
+                    <?= $this->fetch("tb_actions")?>                    
+                </ul>       
+                <?php if (!is_null($this->request->session()->read('Auth.User.username'))):?> 
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li>
+                            <span class="navbar-text"> Hola, <?= $this->request->session()->read('Auth.User.first_name'). " " .$this->request->session()->read('Auth.User.last_name') ?></span>
+                        </li>
+                        <li>
+                            <div class="btn-nav">
+                                <a class="btn btn-primary btn-small navbar-btn" href="/Users/logout">Salir</a>
+                            </div>
+                        </li>
+                    </ul>       
+                        
+                <?php endif;?>
+                               
             </div>
         </div>
     </nav>
-       
+
+    
 
         <div class="container">
             <?php

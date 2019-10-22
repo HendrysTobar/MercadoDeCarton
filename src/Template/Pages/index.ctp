@@ -113,7 +113,7 @@ $cakeDescription = 'Mercado de Cartón';
               <div class="slide-text">
                 <h1>Compra y Venta de Cartas de Magic:The Gathering</h1>
                 <p class="mb-5">En Mercado de Cartón tendrás acceso a compradores y vendedores de toda latinoamérica. Publica tus cartas, busca en nuestra base de datos lo que necesitas</p>
-                <p><a href="/Users/add" target="_blank" class="btn btn-outline-light py-3 px-5">Comienza</a></p>
+                <p><a href="/Users/login" class="btn btn-outline-light py-3 px-5">Comienza</a></p>
               </div>              
             </div>
 
@@ -166,6 +166,7 @@ $cakeDescription = 'Mercado de Cartón';
           <div class="col-lg-6 mb-5">
             <h2 class="section-title">Inscríbete Ahora</h2>
             <p>Aquí podrás inscribirte para acceder a nuestros servicios, publicar tus cartas y contactar con vendedores</p>
+            <p><a href="/Users/add" class="btn btn-outline-dark py-3 px-5">Inscríbete</a></p>
           </div>
         </div>
 
