@@ -36,7 +36,7 @@ class CreateCards extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-        $table->create();
+        $table->create();//
 
         $refTable = $this->table('cards'); 
         $refTable->addColumn('user_id','integer',array('signed'=>'disable'))->

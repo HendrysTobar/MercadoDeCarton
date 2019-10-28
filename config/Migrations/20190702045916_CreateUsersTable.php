@@ -12,6 +12,7 @@ class CreateUsersTable extends AbstractMigration
      */
     public function change()
     {
+        
         $table = $this->table('users');
         $table->addColumn('first_name', 'string', array('limit'=>100))
         ->addColumn('last_name','string', array('limit'=>100))
@@ -24,7 +25,14 @@ class CreateUsersTable extends AbstractMigration
         ->addColumn('modified','datetime')
         ->create();
 
+       
+
+        /***********Añadir unos cuantos usuarios */
+        /****Se hace en el seed */
+
 
 
     }
+
+   
 }
