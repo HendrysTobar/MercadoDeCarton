@@ -12,6 +12,8 @@ class CreateCards extends AbstractMigration
      */
     public function change()
     {
+
+       
         $table = $this->table('cards');
         $table->addColumn('name', 'string', [
             'default' => null,

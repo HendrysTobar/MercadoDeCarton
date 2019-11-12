@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateUsersTable extends AbstractMigration
+class CreateUsers extends AbstractMigration
 {
     /**
      * Change Method.
