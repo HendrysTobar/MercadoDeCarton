@@ -81,6 +81,7 @@ $this->end();
                         required: "Se requiere una contraseña",
                         minlength: "La contraseña debe tener al menos 5 caracteres"
                     },
+                    //Parámetros de validación
                     repassword: {
                         required: "Se requiere una contraseña",
                         minlength: "La contraseña debe tener al menos 5 caracteres",
