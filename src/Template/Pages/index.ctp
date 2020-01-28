@@ -166,7 +166,7 @@ $cakeDescription = 'Mercado de Cartón';
           <div class="col-lg-6 mb-5">
             <h2 class="section-title">Inscríbete Ahora</h2>
             <p>Aquí podrás inscribirte para acceder a nuestros servicios, publicar tus cartas y contactar con vendedores</p>
-            <p><a href="/Users/add" class="btn btn-outline-dark py-3 px-5">Inscríbete</a></p>
+            <p><a href="<?= $this->Url->build(["controller" => "Users","action" => "add"])?>" class="btn btn-outline-dark py-3 px-5">Inscríbete</a></p>
           </div>
         </div>
 
