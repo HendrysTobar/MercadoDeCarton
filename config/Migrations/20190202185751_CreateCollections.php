@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateCards extends AbstractMigration
+class CreateCollections extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,23 +12,26 @@ class CreateCards extends AbstractMigration
      */
     public function change()
     {
-               
-        $table = $this->table('cards', ['id' => false, 'primary_key' => ['id']]);        
+        $table = $this->table('collections', ['id'=>false, 'primary_key'=>'id']);
 
-        $table->addColumn('id', 'uuid');        
+        $table->addColumn('id', 'string', [
+            'default' => null,
+            'limit' => 7,
+            'null' => false,
+        ]);
         $table->addColumn('name', 'string', [
             'default' => null,
-            'limit' => 100,
+            'limit' => 255,
             'null' => false,
         ]);
         $table->addColumn('description', 'string', [
             'default' => null,
-            'limit' => 255,
+            'limit' => 500,
             'null' => false,
         ]);
         $table->addColumn('url_image', 'string', [
             'default' => null,
-            'limit' => 255,
+            'limit' => 500,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [
@@ -39,14 +42,12 @@ class CreateCards extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
-                
-        $table->addColumn('collection_id','string',array('limit'=>'3'));
-        $table->addForeignKey('collection_id','collections', 'id', array('delete'=>'CASCADE','update'=>'CASCADE'));
+        $table->addIndex([
+            'id',
+        ], [
+            'name' => 'UNIQUE_ID',
+            'unique' => true,
+        ]);
         $table->create();
-
-        
-        
-        
     }
-
 }

@@ -15,33 +15,28 @@ class CreateUsersCards extends AbstractMigration
 
     public function change()
     {
+        
         //Creamos la tabla
         $table = $this->table('users_cards');
 
         //Agregamos columnas
-        $table->addColumn('dolar_price', 'integer')
+        $table->addColumn('price', 'integer')
         ->addColumn('price_in_dolar','float')
         ->addColumn('created','datetime')
         ->addColumn('modified','datetime')
-        ->save();
+        ->addColumn('is_cop', 'boolean')
+        ->addColumn('is_foil', 'boolean')
+        ->addColumn('amount','integer', array('limit'=>'11'));
+        
 
         //Agregamos llaves foráneas
         $table->addColumn('user_id', 'integer')->addForeignKey('user_id', 'users','id', ['delete'=>'CASCADE', 'update'=>'CASCADE']);
-        $table->addColumn('card_id', 'integer')->addForeignKey('card_id', 'cards','id', ['delete'=>'CASCADE', 'update'=>'CASCADE']);
-        $table->save();
+        $table->addColumn('card_id', 'uuid')->addForeignKey('card_id', 'cards','id', ['delete'=>'CASCADE', 'update'=>'CASCADE']);
+        $table->create();
 
-
+        
 
 
     }
-
-    public function up()
-    {
-        $this->table('users_cards')->drop()->save();
-    }
-
-    public function down()
-    {
-        $this->table('users_cards')->drop()->save();
-    }
+    
 }
