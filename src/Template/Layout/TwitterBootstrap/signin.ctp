@@ -16,7 +16,7 @@
     
 
         
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-inverse static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
@@ -25,9 +25,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Mercado de Cartón</a>
+                
+                <a href="#" class="navbar-left">
+                    <img style="height:55px"src="./img/MdC.png">
+                </a>
+                
             </div>
-
+            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
                     <?= $this->fetch("tb_actions")?>                    
@@ -51,7 +55,7 @@
     </nav>
 
     
-
+    
         <div class="container">
             <?php
             $this->end();

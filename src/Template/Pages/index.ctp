@@ -121,10 +121,10 @@ $cakeDescription = 'Mercado de Cartón';
           <div class="col-lg-6 ml-auto"  data-aos="fade-up" data-aos-delay="100">
                         
             <div class="owl-carousel slide-one-item-alt">
-              <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              <img src="images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              <img src="images/img_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+              <img src="images/img_1.jpg" alt="" class="img-fluid">
+              <img src="images/img_2.jpg" alt="" class="img-fluid">
+              <img src="images/img_3.jpg" alt="" class="img-fluid">
+              <img src="images/img_4.jpg" alt="" class="img-fluid">
             </div>
 
             <div class="owl-custom-direction">
@@ -191,6 +191,7 @@ $cakeDescription = 'Mercado de Cartón';
             <ul class="list-unstyled footer-links">
               <li><a href="#home-section" class="smoothscroll">Home</a></li>
               <li><a href="#user-section" class="smoothscroll">Usuarios</a></li>              
+              <li><a href="" class="smoothscroll">Ofrecer Cartas</a></li>
             </ul>
           </div>
 
