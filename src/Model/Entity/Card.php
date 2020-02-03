@@ -6,15 +6,16 @@ use Cake\ORM\Entity;
 /**
  * Card Entity
  *
- * @property int $id
+ * @property string $id
  * @property string $name
  * @property string $description
  * @property string $url_image
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
- * @property int $user_id
+ * @property string $collection_id
  *
- * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Collection $collection
+ * @property \App\Model\Entity\User[] $users
  */
 class Card extends Entity
 {
@@ -33,7 +34,8 @@ class Card extends Entity
         'url_image' => true,
         'created' => true,
         'modified' => true,
-        'user_id' => true,
-        'user' => true
+        'collection_id' => true,
+        'collection' => true,
+        'users' => true
     ];
 }

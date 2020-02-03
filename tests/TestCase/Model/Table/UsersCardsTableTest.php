@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CollectionsTable;
+use App\Model\Table\UsersCardsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CollectionsTable Test Case
+ * App\Model\Table\UsersCardsTable Test Case
  */
-class CollectionsTableTest extends TestCase
+class UsersCardsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CollectionsTable
+     * @var \App\Model\Table\UsersCardsTable
      */
-    public $Collections;
+    public $UsersCards;
 
     /**
      * Fixtures
@@ -23,7 +23,8 @@ class CollectionsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Collections',
+        'app.UsersCards',
+        'app.Users',
         'app.Cards'
     ];
 
@@ -35,8 +36,8 @@ class CollectionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Collections') ? [] : ['className' => CollectionsTable::class];
-        $this->Collections = TableRegistry::getTableLocator()->get('Collections', $config);
+        $config = TableRegistry::getTableLocator()->exists('UsersCards') ? [] : ['className' => UsersCardsTable::class];
+        $this->UsersCards = TableRegistry::getTableLocator()->get('UsersCards', $config);
     }
 
     /**
@@ -46,7 +47,7 @@ class CollectionsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Collections);
+        unset($this->UsersCards);
 
         parent::tearDown();
     }

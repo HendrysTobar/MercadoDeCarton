@@ -20,11 +20,54 @@ class CardsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Collections']
         ];
         $cards = $this->paginate($this->Cards);
 
         $this->set(compact('cards'));
+    }
+
+    /**
+     * *Search method
+     * 
+     */
+    public function search($q = null)
+    {
+        //Si no se da una busqueda
+        if(is_null($q))
+            //no retorna nada
+            return;
+        //Esto sirve para que el controlador no muestre una vista HTML sino que retorbna JSON
+        $this->RequestHandler->respondAs('json');
+        $this->response->type('application/json');  
+        $this->autoRender = false; 
+
+        //datos de respuesta
+        $this->loadComponent("ScryFall");
+        
+        $data = $this->ScryFall->buscarCartas($q)["data"];
+        
+        $response = [];
+        foreach($data as $c )
+        {
+            $response[] = (object)[
+                "id"=> $c["id"],
+                "set_url_imagen" => $this->getSetUrlImagen($c["set"]),
+                "name"=>$c["name"]
+            ];
+        }
+        echo json_encode($response);
+    }
+
+    /**
+     * Obtiene la url de la imagen de un set (collection) dado su código
+     */
+    
+    private function getSetUrlImagen($set)
+    {
+        $this->loadModel('Collections');
+        return $this->Collections->get($set)["url_image"];  
+
     }
 
     /**
@@ -37,7 +80,7 @@ class CardsController extends AppController
     public function view($id = null)
     {
         $card = $this->Cards->get($id, [
-            'contain' => ['Users']
+            'contain' => ['Collections', 'Users']
         ]);
 
         $this->set('card', $card);
@@ -60,8 +103,9 @@ class CardsController extends AppController
             }
             $this->Flash->error(__('The card could not be saved. Please, try again.'));
         }
+        $collections = $this->Cards->Collections->find('list', ['limit' => 200]);
         $users = $this->Cards->Users->find('list', ['limit' => 200]);
-        $this->set(compact('card', 'users'));
+        $this->set(compact('card', 'collections', 'users'));
     }
 
     /**
@@ -74,7 +118,7 @@ class CardsController extends AppController
     public function edit($id = null)
     {
         $card = $this->Cards->get($id, [
-            'contain' => []
+            'contain' => ['Users']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $card = $this->Cards->patchEntity($card, $this->request->getData());
@@ -85,8 +129,9 @@ class CardsController extends AppController
             }
             $this->Flash->error(__('The card could not be saved. Please, try again.'));
         }
+        $collections = $this->Cards->Collections->find('list', ['limit' => 200]);
         $users = $this->Cards->Users->find('list', ['limit' => 200]);
-        $this->set(compact('card', 'users'));
+        $this->set(compact('card', 'collections', 'users'));
     }
 
     /**

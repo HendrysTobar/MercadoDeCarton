@@ -89,6 +89,7 @@ $cakeDescription = 'Mercado de Cartón';
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-xl-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a href="#user-section" class="nav-link">Usuarios</a></li>
+                <li><a href="<?= $this->Url->build(["controller" => "UsersCards","action" => "add"])?>" class="nav-link">Ofrecer</a></li>
               </ul>
             </nav>
           </div>
@@ -191,7 +192,7 @@ $cakeDescription = 'Mercado de Cartón';
             <ul class="list-unstyled footer-links">
               <li><a href="#home-section" class="smoothscroll">Home</a></li>
               <li><a href="#user-section" class="smoothscroll">Usuarios</a></li>              
-              <li><a href="" class="smoothscroll">Ofrecer Cartas</a></li>
+              <li><a href="<?= $this->Url->build(["controller" => "Users","action" => "add"])?>" class="smoothscroll">Ofrecer</a></li>
             </ul>
           </div>
 

@@ -27,7 +27,7 @@
                 </button>
                 
                 <a href="#" class="navbar-left">
-                    <img style="height:55px"src="./img/MdC.png">
+                    <img style="height:55px"src="<?=$this->Url->image('MdC.png');?>">
                 </a>
                 
             </div>

@@ -24,6 +24,7 @@ class CardsTableTest extends TestCase
      */
     public $fixtures = [
         'app.Cards',
+        'app.Collections',
         'app.Users'
     ];
 

@@ -9,7 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Cards Model
  *
- * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\CollectionsTable|\Cake\ORM\Association\BelongsTo $Collections
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsToMany $Users
  *
  * @method \App\Model\Entity\Card get($primaryKey, $options = [])
  * @method \App\Model\Entity\Card newEntity($data = null, array $options = [])
@@ -40,9 +41,14 @@ class CardsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
+        $this->belongsTo('Collections', [
+            'foreignKey' => 'collection_id',
             'joinType' => 'INNER'
+        ]);
+        $this->belongsToMany('Users', [
+            'foreignKey' => 'card_id',
+            'targetForeignKey' => 'user_id',
+            'joinTable' => 'users_cards'
         ]);
     }
 
@@ -55,12 +61,12 @@ class CardsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id','Error', 'create');
+            ->uuid('id')
+            ->allowEmptyString('id', null, 'create');
 
         $validator
             ->scalar('name')
-            ->maxLength('name', 255)
+            ->maxLength('name', 100)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
@@ -88,7 +94,7 @@ class CardsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['collection_id'], 'Collections'));
 
         return $rules;
     }
