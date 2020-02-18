@@ -44,12 +44,12 @@ class CardsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '10ffb56b-3052-4cc2-bcb1-9c1fa6c4764b',
+                'id' => 'f1112238-39a6-4523-9251-3bf173f70371',
                 'name' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
                 'url_image' => 'Lorem ipsum dolor sit amet',
-                'created' => '2020-02-03 00:36:53',
-                'modified' => '2020-02-03 00:36:53',
+                'created' => '2020-02-11 03:43:33',
+                'modified' => '2020-02-11 03:43:33',
                 'collection_id' => 'L'
             ],
         ];

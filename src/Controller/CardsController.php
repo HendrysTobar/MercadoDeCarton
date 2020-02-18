@@ -28,49 +28,6 @@ class CardsController extends AppController
     }
 
     /**
-     * *Search method
-     * 
-     */
-    public function search($q = null)
-    {
-        //Si no se da una busqueda
-        if(is_null($q))
-            //no retorna nada
-            return;
-        //Esto sirve para que el controlador no muestre una vista HTML sino que retorbna JSON
-        $this->RequestHandler->respondAs('json');
-        $this->response->type('application/json');  
-        $this->autoRender = false; 
-
-        //datos de respuesta
-        $this->loadComponent("ScryFall");
-        
-        $data = $this->ScryFall->buscarCartas($q)["data"];
-        
-        $response = [];
-        foreach($data as $c )
-        {
-            $response[] = (object)[
-                "id"=> $c["id"],
-                "set_url_imagen" => $this->getSetUrlImagen($c["set"]),
-                "name"=>$c["name"]
-            ];
-        }
-        echo json_encode($response);
-    }
-
-    /**
-     * Obtiene la url de la imagen de un set (collection) dado su código
-     */
-    
-    private function getSetUrlImagen($set)
-    {
-        $this->loadModel('Collections');
-        return $this->Collections->get($set)["url_image"];  
-
-    }
-
-    /**
      * View method
      *
      * @param string|null $id Card id.
