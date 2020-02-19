@@ -3,89 +3,19 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Card $card
  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Card'), ['action' => 'edit', $card->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Card'), ['action' => 'delete', $card->id], ['confirm' => __('Are you sure you want to delete # {0}?', $card->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Cards'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Card'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Collections'), ['controller' => 'Collections', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Collection'), ['controller' => 'Collections', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="cards view large-9 medium-8 columns content">
-    <h3><?= h($card->name) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= h($card->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($card->name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($card->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Url Image') ?></th>
-            <td><?= h($card->url_image) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Collection') ?></th>
-            <td><?= $card->has('collection') ? $this->Html->link($card->collection->name, ['controller' => 'Collections', 'action' => 'view', $card->collection->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($card->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($card->modified) ?></td>
-        </tr>
-    </table>
-    <div class="related">
-        <h4><?= __('Related Users') ?></h4>
-        <?php if (!empty($card->users)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('First Name') ?></th>
-                <th scope="col"><?= __('Last Name') ?></th>
-                <th scope="col"><?= __('Username') ?></th>
-                <th scope="col"><?= __('Email') ?></th>
-                <th scope="col"><?= __('Password') ?></th>
-                <th scope="col"><?= __('Role') ?></th>
-                <th scope="col"><?= __('Active') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($card->users as $users): ?>
-            <tr>
-                <td><?= h($users->id) ?></td>
-                <td><?= h($users->first_name) ?></td>
-                <td><?= h($users->last_name) ?></td>
-                <td><?= h($users->username) ?></td>
-                <td><?= h($users->email) ?></td>
-                <td><?= h($users->password) ?></td>
-                <td><?= h($users->role) ?></td>
-                <td><?= h($users->active) ?></td>
-                <td><?= h($users->created) ?></td>
-                <td><?= h($users->modified) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Users', 'action' => 'view', $users->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Users', 'action' => 'edit', $users->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
+ $this->layout = "compras";
+ ?>
+
+<div class="container bg-primary">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <h1 style="font-size: 31px;"> <?= $card->name?> </h1>
+            </div>
+            <div class="card-body bg-light">
+                <div></div><img width="250px" style="width: 250px;" src="<?= $card->url_image?>">
+                <h4 class="text-primary">Descripción</h4><span class="text-primary"><br><?= $card->description?><br></span>
+                <a
+                    class="btn btn-primary btn-lg text-light bg-primary" role="button" style="font-size: 30px;">Volver</a>
+            </div>
+        </div>
     </div>
-</div>

@@ -37,7 +37,7 @@ class Application extends BaseApplication
         Configure::write('DebugKit.safeTld', ['localhost', 'local', 'com']);
         $this->addPlugin('DebugKit');
 
-        $this->addPlugin('BootstrapUI');
+        //$this->addPlugin('BootstrapUI');
 
           
 

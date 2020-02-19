@@ -38,7 +38,7 @@ class AppView extends View
     public function initialize()
     {
 
-        $this->initializeUI();
+        //$this->initializeUI();
         
     }
 }
